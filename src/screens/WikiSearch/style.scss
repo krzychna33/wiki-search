@@ -1,16 +1,27 @@
+@import "../../styles/variables";
+
 .header {
   width: 100%;
   padding: 20px 40px;
   border-bottom: 1px solid black;
+  @include desktop() {
+    padding: 20px 30px;
+  }
 }
 
 .resultsWrapper {
   padding: 20px 40px;
+  @include desktop() {
+    padding: 20px 30px;
+  }
 }
 
 .article {
   padding: 20px 5px;
   border-bottom: 1px solid #ced4da;
+  @include desktop() {
+    padding: 20px 0;
+  }
   > h4 {
     margin-bottom: 10px;
   }
