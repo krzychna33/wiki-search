@@ -101,9 +101,9 @@ class WikiSearch extends React.Component<IWikiSearchProps, IWikiSearchState> {
                             <div>
                                 <h3>Search results</h3>
                                 {
-                                    this.state.results && this.state.results.map((article: any) => {
+                                    this.state.results && this.state.results.map((article: any, index) => {
                                         return (
-                                            <div className={style.article}>
+                                            <div className={style.article} key={index}>
                                                 <h4>{article.title}</h4>
                                                 <div dangerouslySetInnerHTML={{__html: article.snippet}}/>
                                             </div>
