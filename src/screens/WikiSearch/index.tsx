@@ -83,6 +83,7 @@ class WikiSearch extends React.Component<IWikiSearchProps, IWikiSearchState> {
     }
 
     render() {
+        const {searchPhrase} = this.props.filters;
         return (
             <div>
                 <div className={style.header}>
@@ -91,16 +92,25 @@ class WikiSearch extends React.Component<IWikiSearchProps, IWikiSearchState> {
                 <WikiSearchControls searchTrigger={this.searchTrigger} replaceTrigger={this.replacePhrase}
                                     replaceAllTrigger={this.replaceAll}/>
                 <div className={style.resultsWrapper}>
-                    <h3>Search results</h3>
                     {
-                        this.state.results && this.state.results.map((article: any) => {
-                            return (
-                                <div className={style.article}>
-                                    <h4>{article.title}</h4>
-                                    <div dangerouslySetInnerHTML={{__html: article.snippet}}/>
-                                </div>
-                            )
-                        })
+                        this.props.wikiArticles.isLoading ?
+                            <div>
+                                <p>Loading...</p>
+                            </div>
+                        :
+                            <div>
+                                <h3>Search results</h3>
+                                {
+                                    this.state.results && this.state.results.map((article: any) => {
+                                        return (
+                                            <div className={style.article}>
+                                                <h4>{article.title}</h4>
+                                                <div dangerouslySetInnerHTML={{__html: article.snippet}}/>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                     }
                 </div>
             </div>

@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .container {
   width: 100%;
   padding: 20px 40px;
@@ -16,6 +18,9 @@
 
 .inputsGroup {
   width: 50%;
+  @include desktop {
+    width: 100%;
+  }
 }
 
 .buttonsGroup {

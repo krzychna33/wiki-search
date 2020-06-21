@@ -25,7 +25,7 @@ export const startSearchWikiArticles = (searchPhrase: string) => {
         dispatch(searchWikiArticlesFetch());
         searchWikiArticles(searchPhrase).then((response) => {
             dispatch(searchWikiArticlesSuccess(response.data.query.search));
-        }).catch((err) => {
+        }).catch(() => {
             dispatch(searchWikiArticlesError());
         })
     }
